@@ -1,0 +1,499 @@
+{
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "exec": [
+          ""
+        ],
+        "packages": {},
+        "requests": {},
+        "type": "text/javascript"
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "exec": [
+          ""
+        ],
+        "packages": {},
+        "requests": {},
+        "type": "text/javascript"
+      }
+    }
+  ],
+  "info": {
+    "_exporter_id": "56817078",
+    "_postman_id": "61be25fb-847c-4bb6-8ee4-69a9e1ee0a4f",
+    "name": "apiato",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "token",
+      "request": {
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\r\n  \"email\": \"admin@admin.com\",\r\n  \"password\": \"admin\"\r\n}"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "url": {
+          "host": [
+            "api",
+            "apiato",
+            "test"
+          ],
+          "path": [
+            "v1",
+            "clients",
+            "web",
+            "login"
+          ],
+          "protocol": "http",
+          "raw": "http://api.apiato.test/v1/clients/web/login"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "token_user",
+      "request": {
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\r\n  \"email\": \"taskuser1@example.com\",\r\n  \"password\": \"password\"\r\n}"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "url": {
+          "host": [
+            "api",
+            "apiato",
+            "test"
+          ],
+          "path": [
+            "v1",
+            "clients",
+            "web",
+            "login"
+          ],
+          "protocol": "http",
+          "raw": "http://api.apiato.test/v1/clients/web/login"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "token_user2",
+      "request": {
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\r\n  \"email\": \"taskuser2@example.com\",\r\n  \"password\": \"password\"\r\n}"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "url": {
+          "host": [
+            "api",
+            "apiato",
+            "test"
+          ],
+          "path": [
+            "v1",
+            "clients",
+            "web",
+            "login"
+          ],
+          "protocol": "http",
+          "raw": "http://api.apiato.test/v1/clients/web/login"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "check_refresh",
+      "request": {
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\r\n  \"refresh_token\": \"{{refresh_token}}\" \r\n}"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "url": {
+          "host": [
+            "api",
+            "apiato",
+            "test"
+          ],
+          "path": [
+            "v1",
+            "clients",
+            "web",
+            "refresh"
+          ],
+          "protocol": "http",
+          "raw": "http://api.apiato.test/v1/clients/web/refresh"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "check_api",
+      "request": {
+        "auth": {
+          "bearer": [
+            {
+              "key": "token",
+              "type": "string",
+              "value": "{{vault:auth_secret_0m5l}}"
+            }
+          ],
+          "type": "bearer"
+        },
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": ""
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "url": {
+          "host": [
+            "api",
+            "apiato",
+            "test"
+          ],
+          "path": [
+            "v1",
+            "tasks"
+          ],
+          "protocol": "http",
+          "raw": "http://api.apiato.test/v1/tasks"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create_task",
+      "request": {
+        "auth": {
+          "bearer": [
+            {
+              "key": "token",
+              "type": "string",
+              "value": "{{vault:auth_secret_0m5l}}"
+            }
+          ],
+          "type": "bearer"
+        },
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\r\n    \"title\": \"\",\r\n    \"description\": \"Validation test\",\r\n    \"is_completed\": false\r\n}"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "url": {
+          "host": [
+            "api",
+            "apiato",
+            "test"
+          ],
+          "path": [
+            "v1",
+            "tasks"
+          ],
+          "protocol": "http",
+          "raw": "http://api.apiato.test/v1/tasks"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "view_task",
+      "request": {
+        "auth": {
+          "bearer": [
+            {
+              "key": "token",
+              "type": "string",
+              "value": "{{vault:auth_secret_0y58}}"
+            }
+          ],
+          "type": "bearer"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "url": {
+          "host": [
+            "api",
+            "apiato",
+            "test"
+          ],
+          "path": [
+            "v1",
+            "tasks"
+          ],
+          "protocol": "http",
+          "raw": "http://api.apiato.test/v1/tasks"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "view_task_by_id",
+      "request": {
+        "auth": {
+          "bearer": [
+            {
+              "key": "token",
+              "type": "string",
+              "value": "{{vault:auth_secret_1010}}"
+            }
+          ],
+          "type": "bearer"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "url": {
+          "host": [
+            "api",
+            "apiato",
+            "test"
+          ],
+          "path": [
+            "v1",
+            "tasks",
+            "39n0Z12OZGKERJgW"
+          ],
+          "protocol": "http",
+          "raw": "http://api.apiato.test/v1/tasks/39n0Z12OZGKERJgW"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update_task_by_id",
+      "request": {
+        "auth": {
+          "bearer": [
+            {
+              "key": "token",
+              "type": "string",
+              "value": "{{vault:auth_secret_1010}}"
+            }
+          ],
+          "type": "bearer"
+        },
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\r\n    \"title\": \"Изучить Apiato — обновлено\",\r\n    \"description\": \"Проверка обновления задачи через API\",\r\n    \"is_completed\": true\r\n}"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "PATCH",
+        "url": {
+          "host": [
+            "api",
+            "apiato",
+            "test"
+          ],
+          "path": [
+            "v1",
+            "tasks",
+            "39n0Z12OZGKERJgW"
+          ],
+          "protocol": "http",
+          "raw": "http://api.apiato.test/v1/tasks/39n0Z12OZGKERJgW"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete_task",
+      "request": {
+        "auth": {
+          "bearer": [
+            {
+              "key": "token",
+              "type": "string",
+              "value": "{{vault:auth_secret_1010}}"
+            }
+          ],
+          "type": "bearer"
+        },
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": ""
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "DELETE",
+        "url": {
+          "host": [
+            "api",
+            "apiato",
+            "test"
+          ],
+          "path": [
+            "v1",
+            "tasks",
+            "39n0Z12OZGKERJgW"
+          ],
+          "protocol": "http",
+          "raw": "http://api.apiato.test/v1/tasks/39n0Z12OZGKERJgW"
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "auth_secret_0s2r",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_0119",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_14yd",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_1crq",
+      "secret": true
+    },
+    {
+      "key": "json_web_token_1e6w",
+      "secret": true
+    }
+  ]
+}
